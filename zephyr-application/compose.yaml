@@ -1,0 +1,8 @@
+services:
+  zephyr:
+    build:
+      context: .
+    image: zephyr:latest
+    runtime: /usr/local/bin/remoteproc-runtime
+    annotations:
+      remoteproc.name: m33
