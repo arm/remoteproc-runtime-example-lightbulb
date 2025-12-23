@@ -1,0 +1,10 @@
+services:
+  webapp:
+    extends:
+      file: webapp/compose.yaml
+      service: webapp
+
+  zephyr:
+    extends:
+      file: zephyr-application/compose.yaml
+      service: zephyr
