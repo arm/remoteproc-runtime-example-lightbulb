@@ -10,6 +10,6 @@ This demonstrates a full embedded development flow using containers and [remotep
 This example is fully containerised and can be build with
 `docker compose up --build` and then run with [remoteproc-runtime](https://github.com/arm/remoteproc-runtime)
 
+Alternatively, services can be run independently:
 See the [webapp README](./webapp/README.md) for instructions on deploying the web application side.
-See the [zephyr firmware README](./zephyr/README.md) for instructions on building and deploying the zephyr firmware side
-.
+See the [zephyr firmware README](./zephyr/README.md) for instructions on building and deploying the zephyr firmware side.
