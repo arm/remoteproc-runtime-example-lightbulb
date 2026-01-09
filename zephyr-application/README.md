@@ -1,7 +1,7 @@
 # Zephyr Application
 
 A minimal STM32MP25x Ambient zephyr firmware with an openamp remoteproc application.
-The application reads GPIO pin 'gpioa 1' to determine whether it is connected to ground, and reports over rpmsg tty either 'on' or 'off'
+The application reads a GPIO pin to determine whether it is connected to ground, and reports over rpmsg tty either 'on' or 'off'
 
 ## Features
   - Uses Zephyr RTOS
@@ -9,6 +9,13 @@ The application reads GPIO pin 'gpioa 1' to determine whether it is connected to
   - Dockerized multistage image for reproducible builds
   - Extensive debug logs and comments to assist with configuring this on other boards.
   - Uses OpenAMP and RPMSG to communicate with Linux.
+
+## Hardware
+### STM32MP25x
+The zephyr application reads pin 'GPIOA_1'. 
+
+## IMX93
+The zephyr application reads pin 'GPIO_IO03' (pin 5) on the imx93). You can bridge this pin to the pin adjacent to it (pin 6) to ground it. Both pins are 3 positions down.
 
 ## Dependencies
 The build is container-based; the host machine only needs the tools that
