@@ -8,9 +8,12 @@ This demonstrates a full embedded development flow using containers and [remotep
 ## Deployment
 
 This example supports the STM32MP257x and NXP FRDM-imx93 boards
-The build and deployment is fully containerised.
-Build with `PLATFORM=stm32mp257 docker compose up --build` 
-Where PLATFORM can equal either stm32mp257 or `imx93`, the two supported boards.
+The target board must have a container engine (such as Docker), and have [remoteproc-runtime](https://github.com/arm/remoteproc-runtime) installed.
+
+The build and deployment is fully containerised, and can be orchestrated using the [compose file](https://compose-spec.io) in the root of the project.
+```sh
+# set PLATFORM to either stm32mp257 or `imx93` depending on your target
+PLATFORM=stm32mp257 docker compose up --build
 
 Run with [remoteproc-runtime](https://github.com/arm/remoteproc-runtime)
 When deploying with remoteproc-runtime, the REMOTEPROC environment variable needs to be set to either
