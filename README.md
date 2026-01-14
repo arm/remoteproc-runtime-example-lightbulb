@@ -15,10 +15,10 @@ The build and deployment is fully containerised, and can be orchestrated using t
 # set PLATFORM to either stm32mp257 or `imx93` depending on your target
 PLATFORM=stm32mp257 docker compose up --build
 
-Run with [remoteproc-runtime](https://github.com/arm/remoteproc-runtime)
-When deploying with remoteproc-runtime, the REMOTEPROC environment variable needs to be set to either
-`REMOTEPROC=m33` for the stm32mp257x or
-`REMOTEPROC=imx-rproc` for the FRDM-imx93
+To launch the built images, you must set the REMOTEPROC ENV var as launch time
+```sh
+# REMOTEPROC=`m33` for the stm32mp257x or `imx-rproc` for the FRDM-imx93
+REMOTEPROC=imx-rproc docker compose up
 
 Alternatively, services can be run independently:
 See the [webapp README](./webapp/README.md) for instructions on deploying the web application side.
