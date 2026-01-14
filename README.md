@@ -7,7 +7,7 @@ This demonstrates a full embedded development flow using containers and [remotep
 
 ## Deployment
 
-This example fully supports the STM32MP257x boards, and the FRDM-imx93 board.
+This example supports the STM32MP257x and NXP FRDM-imx93 boards
 The build and deployment is fully containerised.
 Build with `PLATFORM=stm32mp257 docker compose up --build` 
 Where PLATFORM can equal either stm32mp257 or `imx93`, the two supported boards.
