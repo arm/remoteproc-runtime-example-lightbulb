@@ -1,4 +1,4 @@
-FROM zephyrprojectrtos/zephyr-build:latest AS build
+FROM zephyrprojectrtos/zephyr-build:v0.28.0 AS build
 
 ARG PLATFORM=stm32mp257
 
@@ -8,10 +8,10 @@ RUN west init
 ARG PLATFORM
 RUN if [ "$PLATFORM" = "stm32mp257" ]; then \
     git -C /workdir/zephyr fetch --all && \
-    git -C /workdir/zephyr checkout 402adc4a3709c4be8f2f9f3cd10b1a2d838060a9; \
+    git -C /workdir/zephyr checkout tags/v4.3.0; \
     elif [ "$PLATFORM" = "imx93" ]; then \
     git -C /workdir/zephyr fetch --all && \
-    git -C /workdir/zephyr checkout main; \
+    git -C /workdir/zephyr checkout tags/v4.3.0; \
     fi
 
 RUN west update
