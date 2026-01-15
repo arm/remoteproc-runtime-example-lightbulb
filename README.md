@@ -11,14 +11,29 @@ This example supports the STM32MP257x and NXP FRDM-imx93 boards
 The target board must have a container engine (such as Docker), and have [remoteproc-runtime](https://github.com/arm/remoteproc-runtime) installed.
 
 The build and deployment is fully containerised, and can be orchestrated using the [compose file](https://compose-spec.io) in the root of the project.
+
+To build the image on your development machine, run:
 ```sh
 # set PLATFORM to either stm32mp257 or `imx93` depending on your target
-PLATFORM=stm32mp257 docker compose up --build
+PLATFORM=stm32mp257 docker compose build
+```
 
-To launch the built images, you must set the REMOTEPROC ENV var as launch time
+To transfer the images to your target board, run:
 ```sh
-# REMOTEPROC=`m33` for the stm32mp257x or `imx-rproc` for the FRDM-imx93
-REMOTEPROC=imx-rproc docker compose up
+docker save remoteproc-runtime-example-lightbulb-webapp:latest | ssh root@remote 'docker load'
+docker save remoteproc-runtime-example-lightbulb-zephyr:latest | ssh root@remote 'docker load'
+```
+
+To launch the built images on the target board, run the containers directly:
+```sh
+# Start the zephyr firmware (use m33 for STM32MP257x or imx-rproc for FRDM-imx93)
+ssh root@remote 'docker run -d --name remoteproc-zephyr --runtime=io.containerd.remoteproc.v1 --annotation remoteproc.name=m33 remoteproc-runtime-example-lightbulb-zephyr:latest'
+
+# Start the webapp
+ssh root@remote 'docker run -d --name remoteproc-webapp --privileged -p 3000:3000 -v /dev:/dev -e SECRET_KEY=change-me-in-production --restart=on-failure remoteproc-runtime-example-lightbulb-webapp:latest'
+```
+
+The web interface will be available at `http://<target-ip>:3000`
 
 Alternatively, services can be run independently:
 See the [webapp README](./webapp/README.md) for instructions on deploying the web application side.

@@ -16,6 +16,11 @@ RUN if [ "$TARGET" = "stm32mp257" ]; then \
 
 RUN west update
 
+# Install missing Python dependencies required by Zephyr
+USER root
+RUN pip install jsonschema
+USER user
+
 COPY workdir/ /workdir/
 
 WORKDIR /workdir
