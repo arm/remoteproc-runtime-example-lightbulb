@@ -3,7 +3,7 @@ services:
     build:
       context: .
       args:
-        PLATFORM: ${PLATFORM:-stm32mp257} # overriden to 'imx93' for imx93 systems
+        PLATFORM: ${PLATFORM:-stm32mp257} # overridden to 'imx93' for imx93 systems
     runtime: io.containerd.remoteproc.v1
     annotations:
       remoteproc.name: ${REMOTEPROC:-m33} # overridden to 'imx-rproc' for ixm93 systems
