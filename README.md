@@ -15,7 +15,7 @@ The build and deployment is fully containerised, and can be orchestrated using t
 We recommend pre-fetching the base image - this will save a lot of time when rebuilding building as docker won't otherwise cache layers this large:
 
 ```sh
-docker pull zephyrprojectrtos/ci-base:v0.28.5
+docker pull zephyrprojectrtos/ci-base:v0.28.0
 ```
 
 To build the image on your development machine, run:
