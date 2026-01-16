@@ -46,6 +46,6 @@
 };
 
 &gpio2 {
-    status = "okay";
+	status = "okay";
 	interrupts = <11 0>;
 };

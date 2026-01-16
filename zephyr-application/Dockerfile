@@ -4,15 +4,9 @@ ARG PLATFORM=stm32mp257
 
 RUN west init
 
-# Checkout appropriate Zephyr version based on platform
-ARG PLATFORM
-RUN if [ "$PLATFORM" = "stm32mp257" ]; then \
-    git -C /workdir/zephyr fetch --all && \
-    git -C /workdir/zephyr checkout tags/v4.3.0; \
-    elif [ "$PLATFORM" = "imx93" ]; then \
-    git -C /workdir/zephyr fetch --all && \
-    git -C /workdir/zephyr checkout tags/v4.3.0; \
-    fi
+# Checkout Zephyr version
+RUN git -C /workdir/zephyr fetch --all && \
+    git -C /workdir/zephyr checkout tags/v4.3.0
 
 RUN west update
 

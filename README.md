@@ -12,7 +12,7 @@ The target board must have a container engine (such as Docker), and have [remote
 
 The build and deployment is fully containerised, and can be orchestrated using the [compose file](https://compose-spec.io) in the root of the project.
 
-We recommend pre-fetching the base image - this will save a lot of time when rebuilding building as docker won't otherwise cache layers this large:
+We recommend pre-fetching the base image - this will save a lot of time when building as docker won't otherwise cache layers this large:
 
 ```sh
 docker pull zephyrprojectrtos/ci-base:v0.28.0
