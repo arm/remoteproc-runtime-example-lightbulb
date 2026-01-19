@@ -3,6 +3,8 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
+ 
+#include <zephyr/dt-bindings/gpio/gpio.h>
 // https://github.com/zephyrproject-rtos/zephyr/blob/caa8079a5362cd0437ec4d74c888077857df1a9c/samples/subsys/ipc/openamp_rsc_table/boards/imx93_evk_mimx9352_m33.overlay
 
 / {
@@ -47,5 +49,4 @@
 
 &gpio2 {
 	status = "okay";
-	interrupts = <11 0>;
 };
