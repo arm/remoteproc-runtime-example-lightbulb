@@ -20,7 +20,7 @@ docker pull zephyrprojectrtos/ci-base:v0.28.0
 
 To build the image on your development machine, run:
 ```sh
-# set PLATFORM to either stm32mp257 or `imx93` depending on your target
+# set PLATFORM to either `stm32mp257` or `imx93` depending on your target
 PLATFORM=stm32mp257 docker compose build
 ```
 
