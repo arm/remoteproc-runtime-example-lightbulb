@@ -15,7 +15,7 @@ The application reads a GPIO pin to determine whether it is connected to ground,
 The zephyr application reads pin 'GPIOA_1'. 
 
 ## IMX93
-The zephyr application reads pin 'GPIO_IO03' (pin 5) on the imx93). You can bridge this pin to the pin adjacent to it (pin 6) to ground it. Both pins are 3 positions down.
+The zephyr application reads pin 'GPIO_IO03' (pin 5). You can bridge this pin to the pin adjacent to it (pin 6) to ground it. Both pins are 3 positions down.
 
 ## Dependencies
 The build is container-based; the host machine only needs the tools that
