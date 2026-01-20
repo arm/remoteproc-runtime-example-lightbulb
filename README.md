@@ -12,7 +12,7 @@ The target board must have a container engine (such as Docker), and have [remote
 
 The build and deployment is fully containerised, and can be orchestrated using the [compose file](https://compose-spec.io) in the root of the project.
 
-We recommend pre-fetching the base image - this will save a lot of time when building as docker won't otherwise cache layers this large:
+We recommend pre-fetching the base image - this will save a lot of time when rebuilding as docker won't otherwise cache layers this large:
 
 ```sh
 docker pull zephyrprojectrtos/ci-base:v0.28.0
@@ -32,10 +32,6 @@ docker save remoteproc-runtime-example-lightbulb-zephyr:latest | ssh root@remote
 
 To launch the built images on the target board, run the containers directly:
 ```sh
-# Start the zephyr firmware (use m33 for STM32MP257x or imx-rproc for FRDM-imx93)
-ssh root@remote 'docker run -d --name remoteproc-zephyr --runtime=io.containerd.remoteproc.v1 --annotation remoteproc.name=m33 remoteproc-runtime-example-lightbulb-zephyr:latest'
-
-# Start the webapp
 ssh root@remote 'docker run -d --name remoteproc-webapp --privileged -p 3000:3000 -v /dev:/dev -e SECRET_KEY=change-me-in-production --restart=on-failure remoteproc-runtime-example-lightbulb-webapp:latest'
 ```
 
