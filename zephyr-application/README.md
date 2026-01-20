@@ -11,6 +11,7 @@ The application reads a GPIO pin to determine whether it is connected to ground,
   - Uses OpenAMP and RPMSG to communicate with Linux.
 
 ## Hardware
+
 ### STM32MP25x
 The zephyr application reads pin 'GPIOA_1'. 
 
