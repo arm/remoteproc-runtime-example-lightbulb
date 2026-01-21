@@ -2,7 +2,6 @@ services:
   webapp:
     build:
       context: .
-    image: webapp:latest
     privileged: true
     ports:
       - "3000:3000"
