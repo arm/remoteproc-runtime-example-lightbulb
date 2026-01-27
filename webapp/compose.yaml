@@ -1,5 +1,6 @@
 services:
   webapp:
+    platform: linux/arm64
     build:
       context: .
     privileged: true
